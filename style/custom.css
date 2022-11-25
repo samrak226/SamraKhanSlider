@@ -1,0 +1,109 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  display: flex;
+  padding: 0 35px;
+  align-items: center;
+  justify-content: center;
+}
+.heading{
+    font-weight: 700;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    color: rgb(33, 42, 47);
+    margin: 0px 20px;
+    padding: 12px 0px;
+}
+.container{
+  display: flex;
+  position: relative; /*relative positioning from it's left right top and bottom*/
+}
+.container i{
+  top: 50%;
+  height: 48px;
+  width: 48px;
+  color: #343F4F;
+  cursor: pointer;
+  font-size: 24px;
+  position: absolute;
+  text-align: center;
+  line-height: 44px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.1s linear; /* same transition speed from start to end */
+  border: 1px solid rgb(211, 212, 213);
+  z-index: 5;
+  
+}
+.container i:active{
+  transform: translateY(-50%) scale(0.9);
+}
+.container i:hover{
+    border: 1px solid black;
+}
+.container i:first-child{
+  left: -22px;
+  display: none; 
+}
+.container i:last-child{
+  right: -22px;
+}
+.container .carousel{
+  font-size: 0px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;   /*text won't wrap in the next line, will continue in the same line */
+  scroll-behavior: smooth;
+}
+.carousel.drag{
+  cursor: grab;
+  scroll-behavior: auto;
+}
+.carousel.drag img{
+  pointer-events: none;
+}
+.carousel img{
+  height: 400px;
+  background-color: #F5F5F5;
+  width: 100px;
+  object-fit: cover;
+  margin-left: 30px;
+  width: calc(100% / 3);
+  box-shadow: rgb(0 0 0 / 12%) 0px 8px 24px 0px;
+}
+.carousel img:first-child{
+  margin-left: 0px;
+}
+
+.carousel img:hover{
+    transform:scale(1.1);
+    z-index: 2;
+}
+
+@media screen and (max-width: 990px) {
+  .carousel img{
+    width: calc(100% / 2);
+  }
+  .container i{
+    display: none !important;
+  }
+  .carousel img:hover{
+    transform:none;
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .carousel img{
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+    .heading {
+        font-size: 32px;
+    }
+}
